@@ -20,7 +20,8 @@
 |--------------|--------------------------------------------------------------|
 | Backend      | PHP 8.2+, Laravel 12                                         |
 | Frontend     | Livewire 3, Blade, Tailwind CSS, Alpine                      |
-| File Storage | Local (via Laravel storage), with `php artisan storage:link` |
+| File Storage | Local (via Laravel storage), with `php artisan storage:link` 
+                 potentially later down the road via AWS S3                   |
 | Database     | MySQL                                                        |                                       |
 
 ---
