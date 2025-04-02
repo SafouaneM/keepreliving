@@ -16,13 +16,13 @@
 
 ## 🛠 Tech Stack
 
-| Layer        | Tool/Framework                                               |
-|--------------|--------------------------------------------------------------|
-| Backend      | PHP 8.2+, Laravel 12                                         |
-| Frontend     | Livewire 3, Blade, Tailwind CSS, Alpine                      |
-| File Storage | Local (via Laravel storage), with `php artisan storage:link` 
-                 potentially later down the road via AWS S3                   |
-| Database     | MySQL                                                        |                                       |
+| Layer        | Tool/Framework                                                                 |
+|--------------|--------------------------------------------------------------------------------|
+| Backend      | PHP 8.2+, Laravel 12                                                           |
+| Frontend     | Livewire 3, Blade, Tailwind CSS, Alpine                                        |
+| File Storage | Local (via Laravel storage), regular `php artisan storage:link`; potentially AWS S3 later |
+| Database     | MySQL                                                                          |
+
 
 ---
 
