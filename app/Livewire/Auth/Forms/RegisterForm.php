@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire\Auth\Forms;
 
-
+use App\Models\User;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use App\Models\User;
 
 class RegisterForm extends Form
 {

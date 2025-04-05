@@ -1,5 +1,5 @@
 <div>
-    @if(auth()->user())
+    @if (auth()->user())
         <p>yoo ingelogd</p>
         <form wire:submit.prevent="logOut">
             <button type="submit">Logout</button>

@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
     public function logOut()
     {
         if (Auth::check()) {
@@ -18,6 +17,7 @@ class Index extends Component
         } else {
             session()->flash('error', 'You are not logged in.');
         }
+
         return redirect()->route('login');
     }
 

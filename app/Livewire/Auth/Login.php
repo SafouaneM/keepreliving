@@ -8,6 +8,7 @@ use Livewire\Component;
 class Login extends Component
 {
     public LoginForm $form;
+
     public function save(): void
     {
         $this->form->authenticate();
