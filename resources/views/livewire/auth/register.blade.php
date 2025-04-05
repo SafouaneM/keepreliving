@@ -8,4 +8,5 @@
         <x-form.error name="form.password"/>
         <button class="bg-green-300 hover:bg-green-400" type="submit">Save</button>
     </form>
+
 </div>
