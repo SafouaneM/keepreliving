@@ -10,7 +10,7 @@
                 <x-form.error name="form.password" />
 
                 @if (session('error'))
-                    <div class="text-sm text-red-600">
+                    <div class="text-sm text-red-600 mt-3">
                         {{ session('error') }}
                     </div>
                 @endif

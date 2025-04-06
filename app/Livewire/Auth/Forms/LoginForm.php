@@ -28,6 +28,6 @@ class LoginForm extends Form
 
         session()->flash('error', 'These credentials do not match our records.');
 
-        return redirect()->route('dashboard');
+        return null;
     }
 }

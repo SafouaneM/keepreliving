@@ -24,7 +24,6 @@ class RegisterForm extends Form
     {
         $this->validate();
         $user = User::create($this->all());
-        $this->reset();
 
         Auth::login($user);
 

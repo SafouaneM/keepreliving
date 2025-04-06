@@ -20,12 +20,13 @@ it('can login valid user', function () {
 
 it('cannot login invalid user', function () {
     $user = User::factory()->create([
-        'email' => 'nani23.com',
+        'email' => 'nani23@gmail.com',
+        'password' => bcrypt('password'),
     ]);
 
     Livewire::test(Login::class)
         ->set('form.email', $user->email)
-        ->set('form.password', 'password')
+        ->set('form.password', 'password2')
         ->call('save')
-        ->assertHasErrors();
+        ->assertSee('These credentials do not match our records.');
 });
