@@ -3,6 +3,7 @@
 namespace App\Livewire\Dashboard;
 
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Index extends Component
@@ -21,6 +22,7 @@ class Index extends Component
         return redirect()->route('login');
     }
 
+    #[Title('Main Dashboard')]
     public function render()
     {
         return view('livewire.dashboard.index');

@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Livewire\Auth\Forms\RegisterForm;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Register extends Component
@@ -14,6 +15,7 @@ class Register extends Component
         $this->form->save();
     }
 
+    #[Title('Register')]
     public function render()
     {
         return view('livewire.auth.register');

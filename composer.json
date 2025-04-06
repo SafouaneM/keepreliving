@@ -11,6 +11,7 @@
         "laravel/telescope": "^5.7",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
+        "masmerise/livewire-toaster": "^2.7",
         "secondnetwork/blade-tabler-icons": "^3.31"
     },
     "require-dev": {

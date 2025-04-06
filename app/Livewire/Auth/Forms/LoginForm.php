@@ -10,10 +10,10 @@ use Livewire\Form;
 
 class LoginForm extends Form
 {
-    #[Validate('required', 'email')]
+    #[Validate('required|string|email')]
     public string $email = '';
 
-    #[Validate('required')]
+    #[Validate('required|string|min:8')]
     public string $password = '';
 
     public function authenticate()
@@ -21,13 +21,13 @@ class LoginForm extends Form
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            session()->flash('message', 'Login successful!');
+            session()->regenerate();
 
             return redirect()->route('dashboard');
-        } else {
-            session()->flash('error', 'Invalid credentials.');
         }
 
-        return redirect()->route('login');
+        session()->flash('error', 'These credentials do not match our records.');
+
+        return redirect()->route('dashboard');
     }
 }
