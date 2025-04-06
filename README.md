@@ -64,5 +64,12 @@ php artisan storage:link
 
 ```
 
+## ⚖️ License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 License.
+
+You are free to explore and learn from the code, but **commercial use and redistribution are prohibited**.
+---
+
 Built with love by [@SafouaneM](https://safoe.nl) 💻
 
