@@ -15,3 +15,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', \App\Livewire\Dashboard\Index::class)->name('dashboard');
     });
 });
+
+
+Route::get('/toast-test', function () {
+    return view('toast-test');
+});

@@ -5,6 +5,7 @@
             <button type="submit">Logout</button>
         </form>
         <livewire:dashboard.sidebar />
+        <livewire:media.index/>
     @else
         <p>yoo homepageee</p>
     @endif
