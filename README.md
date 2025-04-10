@@ -1,61 +1,52 @@
 # 📸 KeepReliving
 
-**KeepReliving** is a Laravel + Livewire application that allows users to create and share their personal photo/video libraries using unique, shareable access codes. The platform focuses on simplicity and privacy, enabling users to organize, upload, and grant access to media collections with ease.
+**KeepReliving** is a Laravel + Livewire application that allows users to create and share their personal photo/video libraries using unique, shareable codes.
+
+The idea is that you can upload some media, store that in a library with a name, date, etc.
+
+Then, you can bind that library to a code and share it for example, as **view-only**, so that your friends can see and download it without losing the quality of the image (unlike sending media via WhatsApp).
 
 ---
 
-## 🚀 Features
+## 🔥 Core features
 
-- User registration and authentication
-- Upload images and videos into personal libraries
-- Edit or delete uploaded media
-- Generate unique shareable codes to grant access to your library
-- Clean UI layout with a sidebar, upload area, and featured section
+⏳ Means it's currently in development.
 
+🚧 Means it's a blocker for now.
+
+- [x] Basic authentication
+- [ ] ⏳ Creating and uploading media and libraries
+- [ ] Basic profile configuration for that extra flair
+- [ ] Customizing the library info, even going as far as adding a cover image
+- [ ] A basic featured libraries, media section
+- [ ] Generating unique codes for libraries
+- [ ] Permissions for viewing and downloading media in a library
+- [ ] We'll see...
 ---
 
 ## 🛠 Tech Stack
 
-| Layer        | Tool/Framework                                                                 |
-|--------------|--------------------------------------------------------------------------------|
-| Backend      | PHP 8.2+, Laravel 12                                                           |
-| Frontend     | Livewire 3, Blade, Tailwind CSS, Alpine                                        |
+| Layer        | Tool/Framework                                                                            |
+|--------------|-------------------------------------------------------------------------------------------|
+| Backend      | PHP 8.2+, Laravel 12                                                                      |
+| Frontend     | Livewire 3, Blade, Tailwind CSS, Alpine                                                   |
 | File Storage | Local (via Laravel storage), regular `php artisan storage:link`; potentially AWS S3 later |
-| Database     | MySQL                                                                          |
-
+| Deployment   | ?                                                                                         |
+| Database     | MySQL                                                                                     |
+| Testing      | Goes via PEST                                                                             |
 
 ---
 
 ## 🛠️ Project Status
 
-- 🔄 In Development
-- 🎯 Goal: Learn and master Laravel, Livewire, and debugging
-- ☁️ Exploring OpenShift, GitLab pipelines, and deployment (soon)
-- ✍️ UI and features are currently being planned and sketched
+- 🔄 Currently working on it on the weekends and when I have some free time
+- 🎯 My goal is to improve my Laravel, Livewire skills and try to leverage as much of my own skills as possible
+- ☁️ The key then to this project succeeding is that all the media is uploaded to the cloud maybe via S3. Whilst it may raise some costs, it is better for the main application server to not be bloated with media. And then having the application deployed on OpenShift.
+- ✍️ I will try to document and sketch the process of my components, so that I can show the world how I did it and what I learned along the way
 
 ---
 
-## ✅ Planned Core Features Ideas
 
-| Feature | Description |
-|--------|-------------|
-| 🧑‍💻 User Authentication | Users can register and log in |
-| 📁 Media Library | Users can upload images and videos |
-| 🖼️ Media Grid | Uploaded media shown in a clean UI |
-| 🔗 Share Access Code | Generate a unique code to share your library |
-| 👁️ Guest View | Visitors can access a shared library (read-only) |
-| 🔍 Search | Search within your own media by name/tag |
-| 🗂️ Grouping | Organize media into folders or albums |
----
-
-## ☁️ Infrastructure & DevOps Learning Goals
-
-- [ ] Set up a local dev environment on a Linux environment for deployment
-- [ ] Learn how to deploy the app on **OpenShift** 
-- [ ] Understand routes, secrets, and volumes in OpenShift
-- [ ] Create a working GitLab CI pipeline to run tests or deploy
-
----
 
 ## 🧪 Getting Started
 
@@ -73,5 +64,12 @@ php artisan storage:link
 
 ```
 
-Built with love by [@SafouaneM](https://github.com/SafouaneM) 💻
+## ⚖️ License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 License.
+
+You are free to explore and learn from the code, but **commercial use and redistribution are prohibited**.
+---
+
+Built with love by [@SafouaneM](https://safoe.nl) 💻
 
