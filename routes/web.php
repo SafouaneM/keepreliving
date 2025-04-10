@@ -13,6 +13,9 @@ Route::middleware([RedirectIfAuthenticated::class])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', \App\Livewire\Dashboard\Index::class)->name('dashboard');
+        Route::get('/folders', \App\Livewire\Folder\Index::class)->name('folders');
+        Route::get('/folders/create', \App\Livewire\Folder\Create::class)->name('folders.create');
+        Route::get('/folders/{folder}', \App\Livewire\Folder\Show::class)->name('folders.show');
     });
 });
 
