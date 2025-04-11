@@ -12,7 +12,7 @@ class CreateForm extends Form
     public User $user;
     public Folder $folder;
     // ugli
-    #[Validate('required|string|min:2|max:64|unique:folders,name')]
+    #[Validate('required|string|min:2|max:32|unique:folders,name')]
     public $name;
 
     public function create()
