@@ -8,6 +8,6 @@ class Edit extends Component
 {
     public function something()
     {
-        //something editing later for idk
+        // something editing later for idk
     }
 }

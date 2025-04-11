@@ -3,15 +3,15 @@
 namespace App\Livewire\Media\Forms;
 
 use App\Rules\MediaValidator;
-use Livewire\Form;
 use Livewire\Attributes\Validate;
+use Livewire\Form;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class Upload extends Form
 {
-    #[Validate(['required', 'file', 'max:10240', new MediaValidator()])]
+    #[Validate(['required', 'file', new MediaValidator])]
     public $media;
 
     public HasMedia $target;

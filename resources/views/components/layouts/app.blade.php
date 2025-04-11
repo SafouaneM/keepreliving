@@ -7,11 +7,11 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body class="h-full antialiased scroll-smooth">
-     <x-toaster-hub />
         <div class="flex min-h-screen w-full">
          <main class="flex-1 w-full min-h-[100vh]">
             {{ $slot }}
          </main>
         </div>
+        <livewire:toast />
     </body>
 </html>

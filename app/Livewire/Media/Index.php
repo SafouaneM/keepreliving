@@ -8,6 +8,7 @@ use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Index extends Component
 {
@@ -16,6 +17,7 @@ class Index extends Component
     public Upload $form;
     public HasMedia $target;
     public ?string $collection = null;
+    public array $selectedFolder = [];
 
     public function mount(HasMedia $target): void
     {
@@ -32,6 +34,22 @@ class Index extends Component
     public function save(): void
     {
         $this->form->uploadMedia();
+    }
+
+    public function moveMedia(int $mediaId)
+    {
+        $folderId = $this->selectedFolder[$mediaId];
+        $media = Media::find($mediaId);
+        $folder = $this->target->user->folders()->where('id', $folderId)->first();
+
+        if ($folder->media()->where('id', $mediaId)->exists()) {
+            $this->dispatch('toast', message: 'That folder already has that file', type: 'error');
+
+            return;
+        }
+
+        $media->move($folder, $media->collection_name);
+        $this->dispatch('toast', message: 'Media moved to "' . $folder->name . '"', type: 'success');
     }
 
     public function render()

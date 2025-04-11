@@ -10,7 +10,7 @@ class MediaValidator implements ValidationRule
     /**
      * Run the validation rule.
      *
-     * @param  \Closure(string, ?string=): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param  Closure(string, ?string=): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
@@ -18,7 +18,7 @@ class MediaValidator implements ValidationRule
             $fail('The :attribute must be less than 10MB.');
         }
 
-        if (!in_array($value->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
+        if (! in_array($value->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif', 'mp4'])) {
             $fail('The :attribute must be a file of type: jpg, jpeg, png, gif.');
         }
     }

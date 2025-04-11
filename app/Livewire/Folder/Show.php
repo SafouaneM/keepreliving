@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Folder;
 
+use App\Livewire\Media\Forms\Upload;
 use App\Models\Folder;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Livewire\Attributes\Title;
-use App\Livewire\Media\Forms\Upload;
 
 class Show extends Component
 {
