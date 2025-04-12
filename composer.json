@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
         "masmerise/livewire-toaster": "^2.7",
-        "secondnetwork/blade-tabler-icons": "^3.31"
+        "secondnetwork/blade-tabler-icons": "^3.31",
+        "spatie/laravel-medialibrary": "^11.12"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",

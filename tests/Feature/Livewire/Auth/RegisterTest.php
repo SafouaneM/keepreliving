@@ -41,5 +41,3 @@ it('cant register a user who uses the same email as an already existing user', f
         ->call('save')
         ->assertHasErrors();
 });
-
-

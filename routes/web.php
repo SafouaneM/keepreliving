@@ -11,7 +11,17 @@ Route::middleware([RedirectIfAuthenticated::class])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::prefix('dashboard')->group(function () {
+    Route::prefix('home')->group(function () {
         Route::get('/', \App\Livewire\Dashboard\Index::class)->name('dashboard');
     });
+    Route::prefix('folders')->group(function () {
+        Route::get('/', \App\Livewire\Folder\Index::class)->name('folders');
+        Route::get('create', \App\Livewire\Folder\Create::class)->name('folders.create');
+        Route::get('{folder}', \App\Livewire\Folder\Show::class)->name('folders.show');
+    });
+
 });
+
+// Route::get('/toast-test', function () {
+//    return view('toast-test');
+// });
