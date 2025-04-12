@@ -20,6 +20,9 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
 
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
       - name: Install dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
@@ -35,4 +38,7 @@ jobs:
           touch database/database.sqlite
 
       - name: Run Pest in parallel
-        run: vendor/bin/pest --parallel
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+        run: php artisan test
