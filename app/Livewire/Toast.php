@@ -1,6 +1,6 @@
 <?php
 
-// TODO THIS IS TEMPORARY, IDK HOW TO FIX THE TOASTER T4 issue
+// TODO THIS IS TEMPORARY, IDK HOW TO FIX THE TOASTER T4 issue :(
 
 namespace App\Livewire;
 
