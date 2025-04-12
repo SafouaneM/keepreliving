@@ -12,13 +12,19 @@
                 <div class="p-2 text-sm text-gray-700">{{ $media->file_name }}</div>
 
                 @if ($target->user && $target->user->folders->count() > 0)
-                    <select wire:model="selectedFolder.{{ $media->id }}" class="w-full rounded border-gray-300 text-sm">
+                    <select wire:model.live="selectedFolder.{{ $media->id }}" class="w-full rounded border-gray-300 text-sm">
                         <option value="">Move to folder...</option>
                         @foreach ($target->user->folders as $folder)
                             <option value="{{ $folder->id }}">{{ $folder->name }}</option>
                         @endforeach
                     </select>
-                    <button wire:click="moveMedia({{ $media->id }})" class="w-full text-sm bg-green-500 text-white py-1 rounded hover:bg-green-600">Move</button>
+
+                    @php
+                        $disabled = !($selectedFolder[$media->id] ?? false);
+                    @endphp
+
+                    <x-button.primary wire:click="moveMedia({{ $media->id }})" :disabled="$disabled">Move</x-button.primary>
+                    <x-form.error :name="'selectedFolder.' . $media->id" />
                 @endif
             </div>
         @empty

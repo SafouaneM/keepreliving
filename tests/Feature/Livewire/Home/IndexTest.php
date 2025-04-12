@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Models\User;
+use App\Livewire\Home\Index;
 
 it('renders correctly', function () {
-    Livewire::test('home.index')
+    Livewire::test(Index::class)
         ->assertStatus(200);
 });

@@ -15,7 +15,7 @@ it('can login valid user', function () {
         ->set('form.email', $user->email)
         ->set('form.password', 'password')
         ->call('save')
-        ->assertRedirect('dashboard');
+        ->assertRedirect('home');
 });
 
 it('cannot login invalid user', function () {

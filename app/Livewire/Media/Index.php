@@ -3,6 +3,7 @@
 namespace App\Livewire\Media;
 
 use App\Livewire\Media\Forms\Upload;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\HasMedia;
@@ -39,13 +40,20 @@ class Index extends Component
     public function moveMedia(int $mediaId)
     {
         $folderId = $this->selectedFolder[$mediaId];
+
+        if (! $folderId) {
+            throw ValidationException::withMessages([
+                "selectedFolder.{$mediaId}" => 'Please select a folder first.',
+            ]);
+        }
+
         $media = Media::find($mediaId);
         $folder = $this->target->user->folders()->where('id', $folderId)->first();
 
         if ($folder->media()->where('id', $mediaId)->exists()) {
-            $this->dispatch('toast', message: 'That folder already has that file', type: 'error');
-
-            return;
+            throw ValidationException::withMessages([
+                "selectedFolder.{$mediaId}" => 'This media already exists in the folder.',
+            ]);
         }
 
         $media->move($folder, $media->collection_name);
