@@ -10,6 +10,6 @@ class Index extends Component
     #[Title('Home')]
     public function render()
     {
-        return view('livewire.home.index');
+        return view('livewire.home.index')->layout('components.layouts.guest');
     }
 }

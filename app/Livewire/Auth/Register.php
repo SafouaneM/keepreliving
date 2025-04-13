@@ -18,6 +18,6 @@ class Register extends Component
     #[Title('Register')]
     public function render()
     {
-        return view('livewire.auth.register');
+        return view('livewire.auth.register')->layout('components.layouts.guest');
     }
 }
