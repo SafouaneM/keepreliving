@@ -20,6 +20,10 @@ Route::middleware('auth')->group(function () {
         Route::get('{folder}', \App\Livewire\Folder\Show::class)->name('folders.show');
     });
 
+    Route::prefix('/profile')->group(function () {
+        Route::get('/{username}', \App\Livewire\Profile\Show::class)->name('profile.show');
+    });
+
 });
 
 // Route::get('/toast-test', function () {
