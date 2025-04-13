@@ -11,7 +11,7 @@
             <a wire:navigate href="{{ route('profile.show', $user->username) }}" class="text-lg font-semibold text-gray-900 hover:underline">
                 {{ $user->username }}
             </a>
-            <span>{{$user->status}}</span>
+            <span>{{ $user->status }}</span>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         </button>
 
         <div x-show="open" class="space-y-1 pl-3">
-            @forelse($foldersToShow as $folder)
+            @forelse ($foldersToShow as $folder)
                 <a href="{{ route('folders.show', $folder) }}" class="flex justify-between items-start text-sm text-gray-600 hover:text-blue-600 pb-1">
                     <span class="break-all max-w-[80%]">{{ $folder->name }}</span>
                     <span class="text-xs bg-gray-200 px-2 py-0.5 rounded whitespace-nowrap">{{ $folder->media->count() }}</span>

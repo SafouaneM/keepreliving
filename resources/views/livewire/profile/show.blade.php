@@ -1,3 +1,3 @@
 <div>
-    <p>yoo {{$user->username}} with {{$user->email}}</p>
+    <p>yoo {{ $user->username }} with {{ $user->email }}</p>
 </div>
