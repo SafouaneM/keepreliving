@@ -18,7 +18,7 @@ class RegisterForm extends Form
     public string $password = '';
 
     #[Validate('required|string|max:25')]
-    public string $name = '';
+    public string $username = '';
 
     public function save()
     {

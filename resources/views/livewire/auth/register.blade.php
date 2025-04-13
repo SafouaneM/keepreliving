@@ -7,8 +7,8 @@
             <form wire:submit="save" class="space-y-6">
                 <x-form.input wire:model="form.email" placeholder="KeepYourselfSafe@gmail.com" label="Email" for="form.email" />
                 <x-form.error name="form.email"/>
-                <x-form.input wire:model="form.name" placeholder="Name" label="Name" for="form.name"/>
-                <x-form.error name="form.name"/>
+                <x-form.input wire:model="form.username" placeholder="Name" label="Name" for="form.username"/>
+                <x-form.error name="form.username"/>
                 <x-form.input type="password" wire:model="form.password" placeholder="Dextoruse321" label="Password" for="form.password"/>
                 <x-form.error name="form.password"/>
 
