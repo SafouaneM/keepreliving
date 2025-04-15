@@ -11,10 +11,10 @@
 
     <div class="pt-16 px-6 flex flex-col">
         <h1 class="text-xl font-bold text-gray-900 leading-tight">{{ $user->username }}</h1>
-        @if($user->name)
+        @if ($user->name)
             <a wire:navigate href="{{ route('profile.show', $user->username) }}" class="text-sm text-gray-600">{{ '@' . $user->name }}</a>
         @endif
-        @if($user->status)
+        @if ($user->status)
             <p class="text-sm text-gray-500 italic font-bold">{{ $user->status }}</p>
         @endif
     </div>

@@ -16,10 +16,10 @@
         <p class="text-sm text-gray-800 mb-2">hier results ja</p>
 {{--        Layout needs to match the macintosh folder that could look cool with previews from the psatie as well--}}
         <div class="grid grid-cols-2 gap-2">
-            @forelse($user->folders as $folder)
+            @forelse ($user->folders as $folder)
                 <div class="border rounded p-3 shadow-sm">
                     <div class="flex flex-row items-center justify-between">
-                        <a wire:navigate href="{{ route('folders.show', $folder) }}" class="font-semibold text-zinc-800 truncate">{{$folder->name}}</a>
+                        <a wire:navigate href="{{ route('folders.show', $folder) }}" class="font-semibold text-zinc-800 truncate">{{ $folder->name }}</a>
                         <p class="text-xs text-zinc-500 whitespace-nowrap">
                             {{ $folder->media->count() }} media items
                         </p>
