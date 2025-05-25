@@ -4,6 +4,7 @@ namespace App\Livewire\Folder;
 
 use App\Livewire\Folder\Forms\CreateForm;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 class Create extends Component
 {
@@ -17,6 +18,7 @@ class Create extends Component
     public function save()
     {
         $this->form->create();
+        Toaster::success('Folder created successfully.');
     }
 
     public function render()

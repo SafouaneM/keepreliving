@@ -6,6 +6,7 @@ use App\Livewire\Media\Forms\Upload;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Masmerise\Toaster\Toaster;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
@@ -35,6 +36,7 @@ class Index extends Component
     public function save(): void
     {
         $this->form->uploadMedia();
+        Toaster::success('Media uploaded successfully.');
     }
 
     public function moveMedia(int $mediaId)
@@ -51,13 +53,11 @@ class Index extends Component
         $folder = $this->target->user->folders()->where('id', $folderId)->first();
 
         if ($folder->media()->where('id', $mediaId)->exists()) {
-            throw ValidationException::withMessages([
-                "selectedFolder.{$mediaId}" => 'This media already exists in the folder.',
-            ]);
+            Toaster::error('Media already exists inside this folder.');
+        } else {
+            $media->move($folder, $media->collection_name);
+            Toaster::success('Media moved successfully.');
         }
-
-        $media->move($folder, $media->collection_name);
-        $this->dispatch('toast', message: 'Media moved to "' . $folder->name . '"', type: 'success');
     }
 
     public function render()
