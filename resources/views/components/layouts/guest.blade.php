@@ -12,6 +12,6 @@
         {{ $slot }}
     </main>
 </div>
-<livewire:toast />
+<x-toaster-hub/>
 </body>
 </html>

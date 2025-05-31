@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::get('shared/{share_token}', \App\Livewire\Folder\Shared\View::class)->name('folders.shared');
 // Route::get('/toast-test', function () {
 //    return view('toast-test');
 // });

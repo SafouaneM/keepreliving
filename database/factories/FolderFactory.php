@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\SharePermissions;
 use App\Models\Folder;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class FolderFactory extends Factory
         return [
             'name' => $this->faker->unique()->words(5, true),
             'user_id' => User::factory(),
+            'share_permission' => SharePermissions::View->value,
         ];
     }
 }
