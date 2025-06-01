@@ -8,6 +8,9 @@ Then, you can bind that library to a code and share it for example, as **view-on
 
 ---
 
+## ⏳Screenshots to get a feel
+
+
 ## 🔥 Core features
 
 ⏳ Means it's currently in development.
@@ -15,12 +18,12 @@ Then, you can bind that library to a code and share it for example, as **view-on
 🚧 Means it's a blocker for now.
 
 - [x] Basic authentication
-- [ ] ⏳ Creating and uploading media and libraries
+- [x] Creating and uploading media and libraries
 - [ ] Basic profile configuration for that extra flair
 - [ ] Customizing the library info, even going as far as adding a cover image
 - [ ] A basic featured libraries, media section
-- [ ] Generating unique codes for libraries
-- [ ] Permissions for viewing and downloading media in a library
+- [~] ⏳ Generating unique codes for libraries (first phase done though)
+- [~] ⏳ Permissions for viewing and downloading media in a library
 - [ ] We'll see...
 ---
 
