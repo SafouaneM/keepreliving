@@ -47,6 +47,16 @@ class Folder extends Model implements HasMedia
         return ! $this->isShared();
     }
 
+    public function tokenIsExpired()
+    {
+        return $this->token_expires_at && $this->token_expires_at->isPast();
+    }
+
+    public function tokenIsNotExpired()
+    {
+        return ! $this->tokenIsExpired();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

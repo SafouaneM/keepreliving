@@ -1,0 +1,1 @@
+{{--Onclick image component--}}
