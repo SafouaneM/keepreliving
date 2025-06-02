@@ -1,6 +1,6 @@
 # 📸 KeepReliving
 
-**KeepReliving** is a Laravel + Livewire application that allows users to create and share their personal photo/video libraries using unique, shareable codes.
+**KeepReliving** is a Laravel ![Laravel](https://img.shields.io/badge/-12-red?style=flat&logo=laravel&logoColor=white) + Livewire ![Livewire](https://img.shields.io/badge/-3-blue?style=flat&logo=livewire&logoColor=white) application that allows users to create and share their personal photo/video libraries using unique, shareable codes.
 
 The idea is that you can upload some media, store that in a library with a name, date, etc.
 
@@ -9,7 +9,21 @@ Then, you can bind that library to a code and share it for example, as **view-on
 ---
 
 ## ⏳Screenshots to get a feel
-
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/5239c797-d813-47b2-8e1b-ce82945c08ad" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/c7dc6753-ef27-4270-9c05-904761f76125" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/81481389-ae61-49e5-b07f-f12c9ae83209" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/30585512-2899-4bc9-a69d-f6df4a688aa3" width="300"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://github.com/user-attachments/assets/f8766712-9e3a-4f08-b669-9c5e4407f2ae" width="600">
+    </td>
+  </tr>
+</table>
 
 ## 🔥 Core features
 
