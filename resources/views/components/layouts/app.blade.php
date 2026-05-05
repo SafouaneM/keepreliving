@@ -11,7 +11,7 @@
         <livewire:dashboard.sidebar/>
     @endauth
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-         <main class="ml-64 mx-auto max-w-3xl px-4">
+         <main class="ml-64 mx-auto max-w-4xl px-4">
             {{ $slot }}
          </main>
         </div>

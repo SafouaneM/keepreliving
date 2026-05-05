@@ -29,7 +29,11 @@
     </div>
 
     <div class="py-2">
-        <p class="text-sm text-gray-800 mb-2">Search Results</p>
+        @if($this->searchText && $this->searchType === SearchType::Folders)
+        <p class="text-sm text-gray-800 mb-2">Found {{count($this->results)}} folder(s)</p>
+        @elseif($this->searchText && $this->searchType === SearchType::Media)
+        <p class="text-sm text-gray-800 mb-2">Found {{count($this->results)}} media file(s)</p>
+        @endif
         <div class="grid grid-cols-4 gap-2">
             @forelse ($this->results as $result)
                 <div class="p-3">

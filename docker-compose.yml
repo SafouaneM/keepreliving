@@ -1,0 +1,95 @@
+networks:
+  projects-proxy:
+    external: true
+  keepreliving:
+    driver: bridge
+
+volumes:
+  keepreliving-mysql:
+    driver: local
+  keepreliving-redis:
+    driver: local
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: keepreliving-app
+    container_name: keepreliving-app
+    working_dir: /var/www/html
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    networks:
+      - keepreliving
+      - projects-proxy
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      LARAVEL_SAIL: 1
+      XDEBUG_MODE: "off"
+    labels:
+      caddy: keepreliving.test
+      caddy.tls: internal
+      caddy.reverse_proxy: "{{upstreams 80}}"
+    command: >
+      bash -c "
+        composer install --no-interaction --prefer-dist &&
+        php artisan key:generate --no-interaction 2>/dev/null || true &&
+        php artisan migrate --force --no-interaction &&
+        php artisan storage:link --no-interaction 2>/dev/null || true &&
+        chmod -R 775 storage bootstrap/cache &&
+        php artisan serve --host=0.0.0.0 --port=80
+      "
+
+  vite:
+    image: node:22-alpine
+    container_name: keepreliving-vite
+    working_dir: /app
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    networks:
+      - keepreliving
+      - projects-proxy
+    ports:
+      - "5173:5173"
+    labels:
+      caddy: vite.keepreliving.test
+      caddy.tls: internal
+      caddy.reverse_proxy: "{{upstreams 5173}}"
+    command: sh -c "npm install && npm run dev -- --host"
+
+  mysql:
+    image: mysql:8.0
+    container_name: keepreliving-mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    networks:
+      - keepreliving
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-secret}"
+      MYSQL_DATABASE: "${DB_DATABASE:-keepreliving}"
+      MYSQL_USER: "${DB_USERNAME:-sail}"
+      MYSQL_PASSWORD: "${DB_PASSWORD:-secret}"
+    volumes:
+      - keepreliving-mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent", "-p${DB_PASSWORD:-secret}"]
+      interval: 5s
+      retries: 10
+      start_period: 15s
+
+  redis:
+    image: redis:alpine
+    container_name: keepreliving-redis
+    restart: unless-stopped
+    networks:
+      - keepreliving
+    volumes:
+      - keepreliving-redis:/data
